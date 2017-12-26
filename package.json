@@ -1,5 +1,5 @@
 {
-    "name": "template-gulp",
+    "name": "h5-cli",
     "version": "1.0.0",
     "description": "模板文件",
     "main": "app.js",
@@ -8,14 +8,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/wellfrog16/template-gulp.git"
+        "url": "git+https://github.com/wellfrog16/h5-cli.git"
     },
     "author": "wellfrog",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/wellfrog16/template-gulp/issues"
+        "url": "https://github.com/wellfrog16/h5-cli/issues"
     },
-    "homepage": "https://github.com/wellfrog16/template-gulp#readme",
+    "homepage": "https://github.com/wellfrog16/h5-cli#readme",
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
@@ -42,5 +42,14 @@
         "gulp-uglify": "^3.0.0",
         "pump": "^1.0.2"
     },
-    "dependencies": {}
+    "dependencies": {},
+    "engines": {
+        "node": ">= 4.0.0",
+        "npm": ">= 3.0.0"
+    },
+    "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+    ]
 }
