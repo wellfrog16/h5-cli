@@ -60,10 +60,16 @@ gulp.task('image', () =>
         .pipe(gulp.dest('dist/assets/img'))
 );
 
-// copy 视音频
+// copy 音频
 gulp.task('audio', () =>
-    gulp.src(['src/assets/audio/**/*', 'src/assets/audio/**/*'])
-        .pipe(gulp.dest('dist/asset'))
+    gulp.src(['src/assets/audio/**/*'])
+        .pipe(gulp.dest('dist/assets/audio'))
+);
+
+// copy 视频
+gulp.task('video', () =>
+    gulp.src(['src/assets/video/**/*'])
+        .pipe(gulp.dest('dist/assets/video'))
 );
 
 // AMD解析打包
@@ -171,7 +177,7 @@ gulp.task('watch', () =>{
 // 组合操作
 gulp.task('default', (cb) =>{
     //gulp.start('js:main', 'requirejs', 'cleancss', 'image', 'htmlreplace');
-    $.sequence('clean', ['less', 'es5:helper', 'es5:app'], ['js:main', 'requirejs', 'cleancss', 'image', 'audio'], 'htmlreplace')(cb);
+    $.sequence('clean', ['less', 'es5:helper', 'es5:app'], ['js:main', 'requirejs', 'cleancss', 'image', 'audio', 'video'], 'htmlreplace')(cb);
     //$.sequence('clean', ['js:main', 'requirejs', 'cleancss', 'i18n', 'image'], 'htmlreplace')(cb);
 });
 

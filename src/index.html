@@ -28,6 +28,14 @@
     <!-- end -->
 </head>
 <body>
-
+    <audio src="./assets/audio/bg.mp3" id="h5-bg" preload="auto"></audio>
+    <script>
+        // 自动播放，兼容，目前只有这个办法。还要设置上面的audio标签
+        // 如果不需要自动播放，注释即可
+        // 另外还需要修改script中music的调用
+        document.addEventListener("WeixinJSBridgeReady", function (){
+            // document.getElementById('h5-bg').play();        
+        }, false);
+    </script>
 </body>
 </html>

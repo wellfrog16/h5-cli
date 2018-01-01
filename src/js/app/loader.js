@@ -5,7 +5,7 @@ define([
     'createjs',
     'helper',
     'frameplayer',
-    'text!../views/loading.html!strip',
+    'text!../components/loading.html!strip',
     'jquery.browser'],
 ($, createjs, helper, frameplayer, htmlLoading) => {
     return (callback) => {
@@ -23,6 +23,7 @@ define([
         // 关键！---一定要将其设置为 true, 否则不起作用。  
         loader.maintainScriptOrder = true;
 
+        // 加载loading页要用的资源
         var source = [
             { 'src': 'main/landscape.png' },
             { 'src': 'main/loading.jpg' },
@@ -32,12 +33,13 @@ define([
         loader.loadManifest(source, true, 'assets/img/');
 
         var t = null;
+        const el = '.sys-loading';
 
         function onComplete() {
             $('body').append(htmlLoading);
             
             t = frameplayer({
-                target: $('.movie'),
+                target: $(`${el} .movie`),
                 total: 66,
                 row: 10,
                 loop: true,
@@ -46,9 +48,9 @@ define([
                 fps: 6,
                 scale: 1.5,
                 autosize : false,
-                onProgress(frame){
-                    console.log(frame);
-                }
+                // onProgress(frame){
+                //     console.log(frame);
+                // }
             });
 
             //t.breakpoint(20);
@@ -66,26 +68,39 @@ define([
             // 关键！---一定要将其设置为 true, 否则不起作用。  
             loader.maintainScriptOrder = true;
     
+            // 加载项目页面要用的资源
             var source = [
-                { 'src': 'main/loading.jpg' }        
+                { 'src': 'icon/music.png' },
+                { 'src': 'open/frame.jpg' },
             ];
     
+            // 音频资源在本地
+            // loader.installPlugin(createjs.Sound);
+            // loader.loadFile({ id: 'h5-bg', src: 'assets/audio/bg.mp3' });
+
+            // 外部mp3连接需要服务器设置允许跨域？
+            // loader.loadFile({ id: 'h5-bg', src: 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/music.mp3' });
+            
+
             loader.on('progress', onProgress);
             loader.on('complete', onComplete);
             loader.loadManifest(source, true, 'assets/img/');
     
             function onComplete() {
-                // t.stop();
-                // $('.loading').fadeOut();
-                // helper.tryFun(callback);
+                // 延迟关闭
+                setTimeout(() => {
+                    t.stop();
+                    $(el).fadeOut();
+                    helper.tryFun(callback);
+                }, 500);
 
                 // console.log('资源加载完成');
             }
     
             function onProgress() {
                 //console.log(loader.progress);
-                $('.loading span').text((loader.progress * 100 | 0) + ' %');
-                $('.loading .progress div').css('width', (loader.progress * 100 | 0) + '%');
+                $(`${el} span`).text((loader.progress * 100 | 0) + ' %');
+                $(`${el} .progress div`).css('width', (loader.progress * 100 | 0) + '%');
             }
         }
     };

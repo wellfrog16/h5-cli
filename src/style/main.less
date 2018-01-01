@@ -1,44 +1,6 @@
 ﻿//@import '../js/lib/bootstrap/less-3.3.7/bootstrap.less';
 @import 'common.less';
 
-// ------------------------------------横屏处理-----------------------------------------
-
-// ------------------------------------横屏处理-----------------------------------------
-
-@media screen and (orientation: portrait) {
-    /*竖屏 css*/
-    .block {
-        display: none;
-    }
-}
-
-@media screen and (orientation: landscape) {
-    /*横屏 css*/
-    .block {
-        z-index: 9999;
-        position: absolute;
-        top:0;
-        left:0;
-        width: 100%;
-        height: 100%;
-        background: #333;
-        color: #fff;
-        text-align: center;
-        //line-height: 100vh;
-        font-size:16px;
-        //display: none;
-
-        img {
-            margin:12% 0 2% 0;
-            width:40%;
-        }
-
-        span {
-            display: block;
-        }
-    }
-}
-
 // ------------------------------------初始化-----------------------------------------
 html, body {
     width: 100%;
@@ -47,7 +9,7 @@ html, body {
     font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑',Arial,sans-serif;;
 
     color:#000;
-    background-color:#fff;
+    background-color:#ccc;
     overflow:hidden;
 }
 
@@ -60,8 +22,9 @@ body {
 
 
 
+// ------------------------------------系统模块-----------------------------------------
 // ------------------------------------loading-----------------------------------------
-.loading {
+.sys-loading {
     position:absolute;
     width: 100%;
     height: 100%;
@@ -111,3 +74,125 @@ body {
     }
 }
 
+// ------------------------------------横屏处理-----------------------------------------
+
+@media screen and (orientation: portrait) {
+    /*竖屏 css*/
+    .sys-block {
+        display: none;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    /*横屏 css*/
+    .sys-block {
+        z-index: 9999;
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        color: #fff;
+        text-align: center;
+        //line-height: 100vh;
+        font-size:16px;
+        //display: none;
+
+        img {
+            margin:12% 0 2% 0;
+            width:40%;
+        }
+
+        span {
+            display: block;
+        }
+    }
+}
+
+// ------------------------------------背景音乐-----------------------------------------
+
+.sys-music {
+    .toggle {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-image: url('../assets/img/icon/music.png');
+        background-size: 100% auto;
+        top: 20px;
+        right: 20px;        
+    }
+
+    .play {
+        animation:kf-rotate 2500ms linear infinite;
+    }
+
+    .pause {
+        background-position-y: -100%;
+    }
+}
+
+// ------------------------------------开场逐帧动画-----------------------------------------
+
+.sys-movie {
+    position: absolute;
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+    .movie {
+        width: 300px;
+        height: 489px;
+        background-image: url('../assets/img/open/frame.jpg');
+        transform-origin: top left;
+    }
+}
+
+// ------------------------------------主流程-----------------------------------------
+
+.sys-swiper {
+    width: 100%;
+    height: 100%;
+
+    .swiper-container, .swiper-slide {
+        width: 100%;
+        height: 100%;
+    }
+
+    .section1 {
+        background-color: #69f8cf;
+    }
+
+    .section2 {
+        background-color: #aedde3;
+
+        .video-box {
+            width: 80%;
+            height: 20vh;
+            background-color: #d7b48c;
+            margin: 30vh auto;
+
+            line-height: 20vh;
+            text-align: center;
+            font-size: 36px;
+        }
+    }
+
+    .section3 {
+        background-color: #f4c0d1;
+    }
+
+    .section4 {
+        background-color: #f7e994;
+    }
+}
+
+
+// ------------------------------------keyframes-----------------------------------------
+
+@keyframes kf-rotate {
+    from { transform:rotate(0deg); }
+    to {transform:rotate(360deg);}
+}

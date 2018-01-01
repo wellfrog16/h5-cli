@@ -30,28 +30,6 @@
         }
     },
 
-    //text: {
-    //    onXhr: function (xhr, url) {
-    //        xhr.setRequestHeader('X-Requested-Width', 'XMLHttpRequest');
-    //        //Called after the XHR has been created and after the
-    //        //xhr.open() call, but before the xhr.send() call.
-    //        //Useful time to set headers.
-    //        //xhr: the xhr object
-    //        //url: the url that is being used with the xhr object.
-    //    },
-    //},
-    //map: {
-
-    //    // 不同模块加载不同版本加载
-    //    'api1' : {
-    //        'jquery' : '版本1'
-    //    },
-
-    //    'api2': {
-    //        'jquery': '版本2'
-    //    }
-    //},
-
     paths: {
         // lib
         // ------------------------------------
@@ -89,15 +67,18 @@
         // app
         // ------------------------------------
         'script' : 'app-es5/script',
-        'loader' : 'app-es5/loader'
+        'loader' : 'app-es5/loader',
+        'music' : 'app-es5/music',
+        'movie': 'app-es5/movie',
+        'flow': 'app-es5/flow',
     },
 
     shim: {
-        'bootstrap' : ['jquery'],
+        //'bootstrap' : ['jquery'],
         //'bootstrap' : ['css!./lib/bootstrap/bootstrap-3.3.7.min.css'],
         'swiper': ['jquery', 'css!./lib/swiper/swiper-3.4.2.min.css'],
-        'jquery.fullPage' : ['jquery', 'css!./lib/jquery/jquery.fullPage.css'],
-        'jquery.cookie' : ['jquery']
+        //'jquery.fullPage' : ['jquery', 'css!./lib/jquery/jquery.fullPage.css'],
+        //'jquery.cookie' : ['jquery']
     },
 
     //shim : {
