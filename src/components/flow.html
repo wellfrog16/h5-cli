@@ -8,15 +8,52 @@
 </head>
 <body>
     <div class="sys-swiper">
-        <div class="swiper-container">
+        <div class="swiper-container" id="mainSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide section1">第一屏</div>
                 <div class="swiper-slide section2">
                     第二屏
                     <div class="video-box"><span>PLAY</span></div>
                 </div>
-                <div class="swiper-slide section3">第三屏</div>
-                <div class="swiper-slide section4">第四屏</div>
+                <div class="swiper-slide section3">
+                    第三屏
+                    <div class="swiper-container" id="swiper1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide section31">A</div>
+                            <div class="swiper-slide section32">B</div>
+                            <div class="swiper-slide section33">C</div>
+                            <div class="swiper-slide section34">D</div>
+                        </div>
+                        <div class="swiper-pagination" id="swiper1p"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide section4">
+                    第四屏
+
+                    <div class="button">
+                        <span class="btContact">联系我们</span>
+                        <span class="btShare">分享给好友</span>
+                    </div>
+                    <div class="contact">
+                        <div class="form">
+                            <span>姓名</span>
+                            <input type="text" id="userName"><br><br>
+    
+                            <span>电话</span>
+                            <input type="text" id="userPhone"><br><br>
+    
+                            <span>电子邮箱</span>
+                            <input type="text" id="userEmail"><br><br>
+
+                            <input type="button" class="send" value="发送">
+                            <input type="button" class="cancel" value="取消">
+                        </div>
+                    </div>
+                    <div class="share">
+                        点击右上角分享
+                    </div>
+                </div>
+                <div class="swiper-slide section5">第五屏</div>
             </div>
         </div>
     </div>

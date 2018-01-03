@@ -7,9 +7,8 @@ define([
     'music',
     'movie',
     'flow',
-    'text!../components/block.html!strip',
-    'text!../views/index.html!strip'],
-function ($, helper, loader, music, movie, flow, htmlBlock, htmlIndex) {
+    'text!../components/block.html!strip'],
+function ($, helper, loader, music, movie, flow, htmlBlock) {
     return () => {
         // 加载jquery插件
         helper.jqueryPlugins();
@@ -20,20 +19,21 @@ function ($, helper, loader, music, movie, flow, htmlBlock, htmlIndex) {
         // 如果是手机端，加载横屏提示
         if (!helper.isPC) { $('body').append(htmlBlock); }
 
-        // 零、预加载
+        // 0、预加载
         loader(()=>{
-            // 一、背景音乐，参数是是否自动播放，自动播放需要到最外层的index.html里设置
+            // 1、背景音乐，参数是是否自动播放，自动播放需要到最外层的index.html里设置
             music(false);
 
-            // 二、主流程，先初始化
+            // 2、主流程，先初始化
             var sections = flow();
             
 
-            // 三、逐帧动画
+            // 3、逐帧动画
             let mv = movie((fplayer) =>{
                 console.log('播放完成');
                 fplayer.target.fadeOut();
 
+                // 3.1、进入主流程
                 sections[0].handle();
             });
 

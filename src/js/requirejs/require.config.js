@@ -71,6 +71,8 @@
         'music' : 'app-es5/music',
         'movie': 'app-es5/movie',
         'flow': 'app-es5/flow',
+        'video1': 'app-es5/video1',
+        'video2': 'app-es5/video2'
     },
 
     shim: {
